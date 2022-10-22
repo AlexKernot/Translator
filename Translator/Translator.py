@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     print("Hello")
-    return '<form method = "POST"> <input name = "text"> <input type = "submit"> </form>' + search("mersi")
+    return '<form method="POST"> <input name="text" type="text"> </form>' + search("mersi")
 
 @app.route(("/wiki/<Word>"))
 def translate(Word):
@@ -16,7 +16,7 @@ def translate(Word):
 @app.route('/', methods=['POST'])
 def redirect():
     text = request.form['text']
-    return search(text)
+    return '<form method="POST"> <input name="text" type="text"> </form>' + search(text)
 
 def search(word):
 
